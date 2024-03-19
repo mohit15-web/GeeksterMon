@@ -26,24 +26,24 @@ function renderCard(detail) {
   card.classList.add("card");
 
   card.innerHTML = `
-    <div class="flip-card-inner">
-    <div class="card-front py-6 card-front flex justify-center items-center flex-col rounded-md box-shadow shadow-2xl shadow-black">
-    <p class="bg-white my-2 w-full text-center">#${detail.id}</p>
+    <div class="flip-card-inner rounded-xl">
+    <div class="card-front py-6 card-front flex justify-center items-center flex-col rounded-xl box-shadow shadow-2xl shadow-black">
+    <p class="bg-white my-2 mt-20 w-full text-center">#${detail.id}</p>
 
     <img src="${detail.sprites.other.dream_world.front_default}" class="h-32 w-32 mx-16 mt-10 transition-transform transform hover:scale-125" alt="${detail.name}">
 
   
-    <h1 class="text-2xl font-bold mt-10">${detail.name}</h1>
-    <span class="text-2xl rounded-full px-6 py-1 text-black mt-9 bg-white" >${detail.types[0].type.name}</span>
+    <h1 class="text-4xl font-bold mt-5">${detail.name}</h1>
+    <span class="text-2xl rounded-full px-6 py-1 mb-20 text-black mt-9 bg-white" >${detail.types[0].type.name}</span>
     </div>
 
     <div class="card-back py-6 text-gray-700 card-front flex justify-center items-center flex-col rounded-md box-shadow shadow-2xl shadow-black">
-    <p class="bg-white my-2 w-full text-center">#${detail.id}</p>
+    <p class="bg-white my-2 px-6 text-center rounded-full">HP:${detail.stats[0].base_stat}</p>
 
-    <img src="${detail.sprites.other.showdown.back_shiny}" class="h-32 w-32 mx-16 mt-10 transition-transform transform hover:scale-125" alt="${detail.name}">
+    <img src="${detail.sprites.other.showdown.front_default}" class="h-32 w-32 mx-16 mt-10 transition-transform transform hover:scale-125" alt="${detail.name}">
   
-    <h1 class="text-2xl font-bold mt-10">${detail.name}</h1>
-    <span class="flex flex-col">Abilities: ${detail.abilities[0].ability.name}, ${detail.abilities[1]?.ability.name}</span>
+    <h1 class="text-3xl font-bold mt-3">${detail.name}</h1>
+    <span class="flex flex-col px-8 mt-5">Abilities: ${detail.abilities[0].ability.name}, ${detail.abilities[1]?.ability.name}</span>
     </div>
     </div>`;
 
@@ -71,7 +71,7 @@ filterbtn.addEventListener("click", () => {
    })
 })
 async function fetchPokemon() {
-  for (let i = 1; i <= 20; i++) {
+  for (let i = 1; i <= 300; i++) {
     let respons = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
     let data = await respons.json();
     let card = renderCard(data);
