@@ -4,7 +4,7 @@ This project is a simple web application that displays Pokémon cards fetched fr
 
 ## Demo 🎥
 
-![Pokemon Card Website Demo](demo.gif)
+[Pokemon Card Website Demo](https://mohit15-web.github.io/GeeksterMon/)
 
 ## Features 🚀
 
